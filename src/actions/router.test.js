@@ -1,5 +1,6 @@
 import { 
   getRouter,
+  configRouter,
   navigate, 
   getCurrentKey, 
   getCurrentPath, 
@@ -15,6 +16,10 @@ import mockState from '../utils/mockState';
 
 describe('Router', () => {
   beforeEach(() => {
+    configRouter({
+      defaultRouteKey: 'list',
+      defaultRole: 'list'
+    })
     mockState();
   });
 

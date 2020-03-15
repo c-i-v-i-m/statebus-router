@@ -11,10 +11,31 @@ A lazy-man's front-end router for Statebus.
 import 'statebus-router'
 ```
 
-## Add a route 
-During your app's initialization, call `addRoute` and pass it a **render** component.
 
-For example, to respond to all requests for /simple with a SIMPLE_COMPONENT.
+### Configure
+Unless configured otherwise, users will be given the "guest" role, and redirected to "/".
+
+*(Optional)* set a home page route and/or a default role by importing and calling the _configRouter_ function.
+
+- _defaultRole_ is the role given to users when not logged in.
+- _defaultRouteKey_ is the route users will be redirected to as a home page.
+
+In the following example, users will be given the `user` role before being logged in, and the first thing they'll see is the contents of the `welcome` route.
+
+
+```coffee
+import { configRouter } from 'statebus-router/actions'
+
+configRouter({
+    defaultRouteKey: 'welcome',
+    defaultRole: 'user'
+})
+```
+
+## Add a route 
+During your app's initialization, call _addRoute_ and pass it a **render** component.
+
+For example, to respond to all requests for `/simple` with a SIMPLE_COMPONENT.
 
 ```coffee
 import { addRoute } from 'statebus-router/actions'
@@ -25,7 +46,7 @@ addRoute('simple', {
 ```
 
 ### Authorization
-You can add an authorization check to your route by defining the **authorize** function which will receive the state at `/user_permissions/{user.name}` though the _permissions_ argument.
+You can add an authorization check to your route by defining the **authorize** function which will receive the state at `/user_permissions/{user.name}` though the `permissions` argument.
 
 ```coffee
 addRoute('authorized', {

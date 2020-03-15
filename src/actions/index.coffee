@@ -1,5 +1,11 @@
-_DEFAULT_ROUTE_KEY = 'list' #@TODO set
-_DEFAULT_ROLE = 'list' #@TODO set
+_DEFAULT_ROUTE_KEY = ''
+_DEFAULT_ROLE = 'guest'
+
+export configRouter = ({defaultRole, defaultRouteKey}) ->
+    if defaultRole
+        _DEFAULT_ROLE = defaultRole
+    if defaultRouteKey
+        _DEFAULT_ROUTE_KEY = defaultRouteKey
 
 export getRouter = () ->
     router = fetch('_router')
