@@ -25,10 +25,7 @@ addRoute('simple', {
 ```
 
 ### Authorization
-You can add an authorization check to your route by defining the **authorize** function.
-
-By default, the authorization function checks the state of `/user_permissions/{user.name}` for permissions.
-<!-- @TOO: must be able to configure permission state URL -->
+You can add an authorization check to your route by defining the **authorize** function which will receive the state at `/user_permissions/{user.name}` though the _permissions_ argument.
 
 ```coffee
 addRoute('authorized', {
@@ -53,7 +50,7 @@ addRoute('item', {
 })
 ```
 
-It's possible to space parameters, such as  `/item/:id/log/:logId`:
+It's possible to seperate route parameters, such as  `/item/:id/log/:logId`:
 
 ```coffee
 addRoute('item', {
@@ -66,10 +63,10 @@ addRoute('item', {
 ```
 
 
-*Important notice*
-The addRoute api is going to be changed. In the future, parameters will be declared in the first addRoute parameter. 
+### Notice regarding changes to _addRoute_ 
+In the future, route parameters will be declared in the first _addRoute_ argument. 
 
-The last example will become:
+As such, the last example will become:
 
 ```coffee
 addRoute('item/:id/log/:logId', {
@@ -78,11 +75,14 @@ addRoute('item/:id/log/:logId', {
 })
 ```
 
-Or, after wrapping ITEM_COMPONENT in a route component:
+Or, after wrapping ITEM_COMPONENT in a route component and adding authentication:
 
 ```coffee
 addRoute('item/:id/log/:logId', {
-    render: ITEM_COMPONENT_ROUTE
+    render: ITEM_COMPONENT_ROUTE,
+    authorize: (permissions) ->
+        if !permissions || !permissions.roles then return false
+        return permissions.roles.includes('authorized_role')
 })
 ```
 
@@ -103,7 +103,7 @@ That's it really.
 
 
 # About ci.V:im
-See: https://civim.org
+https://civim.org
 
 # About Statebus
-See: https://stateb.us
+https://stateb.us
