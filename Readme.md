@@ -17,7 +17,7 @@ During your app's initialization, call `addRoute` and pass it a **render** compo
 For example, to respond to all requests for /simple with a SIMPLE_COMPONENT.
 
 ```coffee
-import { addRoute } from 'statebus-router'
+import { addRoute } from 'statebus-router/actions'
 
 addRoute('simple', {
     render: SIMPLE_COMPONENT,
@@ -41,6 +41,11 @@ addRoute('authorized', {
 In the following example, requests for `/item/23` would be passed to ITEM_COMPONENT(23) because of the mapping through `/item/:id`.
 
 ```coffee
+import { 
+    addRoute, 
+    getPropertiesFromPath
+} from 'statebus-router/actions'
+
 addRoute('item', {
     render: (path) ->
         properties = {}
@@ -50,7 +55,7 @@ addRoute('item', {
 })
 ```
 
-It's possible to seperate route parameters, such as  `/item/:id/log/:logId`:
+It's possible to seperate route parameters.  `/item/:id/log/:logId`:
 
 ```coffee
 addRoute('item', {
@@ -91,6 +96,7 @@ Use <a> tags.
 
 .
 .
+.
 That's it really.
 .
 .
@@ -100,7 +106,10 @@ That's it really.
 .
 .
 .
-
+.
+.
+.
+.
 
 # About ci.V:im
 https://civim.org
