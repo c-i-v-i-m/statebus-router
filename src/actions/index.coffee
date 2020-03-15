@@ -1,4 +1,5 @@
 _DEFAULT_ROUTE_KEY = 'list' #@TODO set
+_DEFAULT_ROLE = 'list' #@TODO set
 
 export getRouter = () ->
     router = fetch('_router')
@@ -16,7 +17,7 @@ authorizeByFn = (routeOptions) ->
             permissions = fetch('/user_permissions/'+user.name)
     
     if !permissions.roles || !permissions.roles.length 
-        permissions = {roles: ['list']}
+        permissions = {roles: [_DEFAULT_ROLE]}
 
     return routeOptions.authorize(permissions)
 
@@ -29,7 +30,7 @@ authorizeByRoles = (routeOptions) ->
             permissions = fetch('/user_permissions/'+user.name)
     
     if !permissions.roles.length
-        permissions = {roles: ['list']}
+        permissions = {roles: [_DEFAULT_ROLE]}
 
     authorized = false
     i = 0
