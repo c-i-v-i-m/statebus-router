@@ -113,7 +113,7 @@ addRoute('item/:id/log/:logId', {
 ```
 
 ## Navigate
-Use <a> tags.
+Use `<a>` tags.
 
 .
 .
