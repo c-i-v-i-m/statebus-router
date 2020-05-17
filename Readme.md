@@ -1,5 +1,5 @@
 # statebus-router
-`version: 0.0.1`
+`version: 0.0.2`
 
 # What is statebus-router?
 A lazy-man's front-end router for Statebus. 
@@ -67,48 +67,16 @@ import {
     getPropertiesFromPath
 } from 'statebus-router/actions'
 
-addRoute('item', {
-    render: (path) ->
-        properties = {}
-        if (path)
-            properties = getPropertiesFromPath(path, '/:id')
-        ITEM_COMPONENT(properties.id)
+addRoute('item/:id', {
+    render: ({id}) -> ITEM_COMPONENT(id)
 })
 ```
 
 It's possible to seperate route parameters.  `/item/:id/log/:logId`:
 
 ```coffee
-addRoute('item', {
-    render: (path) ->
-        properties = {}
-        if (path)
-            properties = getPropertiesFromPath(path, '/:id/log/:logId')
-        ITEM_COMPONENT(properties.id, properties.logId)
-})
-```
-
-
-### Notice regarding changes to _addRoute_ 
-In the future, route parameters will be declared in the first _addRoute_ argument. 
-
-As such, the last example will become:
-
-```coffee
 addRoute('item/:id/log/:logId', {
-    render: ({id, logId}, path) ->
-        ITEM_COMPONENT(id, logId)
-})
-```
-
-Or, after wrapping ITEM_COMPONENT in a route component and adding authentication:
-
-```coffee
-addRoute('item/:id/log/:logId', {
-    render: ITEM_COMPONENT_ROUTE,
-    authorize: (permissions) ->
-        if !permissions || !permissions.roles then return false
-        return permissions.roles.includes('authorized_role')
+    render: ({id, logId}) -> ITEM_COMPONENT(id, logId)
 })
 ```
 

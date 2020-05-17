@@ -26,9 +26,9 @@ module.exports = function karmaConfig (config) { //eslint-disable-line no-undef
         ],
 
         browsers: [
-            //  'Chrome',
-            //  'Firefox',
-             'PhantomJS'
+             'Chrome',
+             'Firefox',
+            //  'PhantomJS'
         ],
 
         singleRun: true,

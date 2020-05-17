@@ -69,11 +69,18 @@ export getCurrentPath = () ->
 
 # Register a route
 export addRoute = (key, options) ->
+    split = key.split('/')
+    key_root = split[0]
+    template = ''
+    if split.length > 1
+        template = split.slice(1).join('/')
+
     router = fetch('_router')
     router.routes or= {}
 
-    if !router.routes[key]
-        router.routes[key] = options
+    if !router.routes[key_root]
+        router.routes[key_root] = options
+        router.routes[key_root].routeTemplate = template
         save(router)
 
     return router;
@@ -101,8 +108,12 @@ export navigate = (key, path) ->
 
 
 export getPropertiesFromPath = (path, template) -> 
-    templateSegments = template.split('/')
-    pathSegments = path.split('/')
+    if !path then return {}
+    if !template.length then return {}
+
+    templateSegments = template.split('/').filter((s) -> s.length)
+    pathSegments = path.split('/').filter((s) -> s.length)
+
     properties = pathSegments.reduce((r, pSegment, idx) ->
         if (templateSegments[idx][0] != ':' && pSegment != templateSegments[idx])
             #not a property but text doesn't match...
