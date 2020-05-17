@@ -21,4 +21,4 @@ addRoute('item/:id/log/:logId', {
 })
 ```
 
-- 
+- Don't export navigate 

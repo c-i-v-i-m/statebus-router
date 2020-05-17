@@ -86,7 +86,7 @@ export addRoute = (key, options) ->
     return router;
 
 # Change route
-export navigate = (key, path) ->
+navigate = (key, path) ->
     router = fetch('_router')
     router.routes or= {}
     if !router.routes[key]
