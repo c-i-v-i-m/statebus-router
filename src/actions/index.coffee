@@ -1,11 +1,20 @@
 _DEFAULT_ROUTE_KEY = ''
 _DEFAULT_ROLE = 'guest'
 
-export configRouter = ({defaultRole, defaultRouteKey}) ->
+export configRouter = ({
+    defaultRole, 
+    defaultRouteKey,
+    unauthorizedComponent
+}) ->
+    router = getRouter()
     if defaultRole
         _DEFAULT_ROLE = defaultRole
+
     if defaultRouteKey
         _DEFAULT_ROUTE_KEY = defaultRouteKey
+
+    if unauthorizedComponent
+        router.unauthorizedComponent = unauthorizedComponent
 
 export getRouter = () ->
     router = fetch('_router')

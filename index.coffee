@@ -8,8 +8,12 @@ dom.ROUTER = () ->
     router = getRouter()
     if !router.routes[router.currentRoute]
         return 'Invalid route.'
+
     if !authorizeRoute(router.routes[router.currentRoute])
-        return 'Unauthorized.'
+        if router.unauthorizedComponent 
+            return router.unauthorizedComponent()
+        else 
+            return 'Unauthorized.'
 
     return router.routes[router.currentRoute].render(
         getPropertiesFromPath(router.currentPath, router.routes[router.currentRoute].routeTemplate),
