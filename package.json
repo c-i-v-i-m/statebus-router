@@ -11,9 +11,6 @@
     "cssnano": "^4.1.10",
     "handlebars-loader": "^1.7.1",
     "moment": "^2.24.0",
-    "postcss-import": "^12.0.1",
-    "postcss-preset-env": "^6.7.0",
-    "style-loader": "^1.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -47,6 +44,9 @@
     "mini-css-extract-plugin": "^0.8.0",
     "mocha": "^6.2.1",
     "postcss-loader": "^3.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^1.0.0",
     "shared": "0.0.1",
     "sinon": "^7.5.0",
     "url-loader": "^2.1.0",
