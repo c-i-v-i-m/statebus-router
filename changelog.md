@@ -1,3 +1,7 @@
+# 0.0.5
+- Actual, comprehensive, dependency cleanup
+- Export navigate from /actions
+
 # 0.0.4
 - Added unauthorizedComponent property to configRouter
 

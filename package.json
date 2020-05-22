@@ -1,15 +1,9 @@
 {
   "name": "statebus-router",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "test": "karma start --auto-watch --no-single-run",
     "test:once": "karma start"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.5.5",
-    "@ungap/url-search-params": "^0.1.2",
-    "moment": "^2.24.0",
-    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -21,14 +15,6 @@
     "chai": "^4.2.0",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.4.1",
-    "css-loader": "^3.1.0",
-    "cssnano": "^4.1.10",
-    "eslint": "^6.1.0",
-    "eslint-loader": "^2.2.1",
-    "file-loader": "^4.1.0",
-    "handlebars-loader": "^1.7.1",
-    "html-webpack-plugin": "^3.2.0",
-    "image-webpack-loader": "^6.0.0",
     "karma": "^4.3.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
@@ -41,20 +27,10 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "^0.0.32",
     "karma-webpack": "^4.0.2",
-    "mini-css-extract-plugin": "^0.8.0",
     "mocha": "^6.2.1",
-    "postcss-loader": "^3.0.0",
-    "postcss-import": "^12.0.1",
-    "postcss-preset-env": "^6.7.0",
-    "style-loader": "^1.0.0",
-    "shared": "0.0.1",
     "sinon": "^7.5.0",
-    "url-loader": "^2.1.0",
     "webpack": "^4.41.2",
-    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-merge": "^4.2.1"
   }
 }
