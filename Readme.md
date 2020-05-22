@@ -1,12 +1,23 @@
 # statebus-router
-`version: 0.0.2`
+`version: 0.0.3`
 
 # What is statebus-router?
 A lazy-man's front-end router for Statebus. 
 
 # How to use it?
+# Add statebus-router to project
+Using npm:
+```bash
+npm add statebus-router
+```
 
-## Import the Router once in your project
+OR using yarn
+
+```bash
+yarn add statebus-router
+```
+
+## Import statebus-router once in your project
 ```coffee
 import 'statebus-router'
 ```

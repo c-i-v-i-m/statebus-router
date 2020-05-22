@@ -1,3 +1,8 @@
+# 0.0.2 -> 0.0.3
+- Update package dev depencies.
+- npmignore eslintrc
+- update readme
+
 # 0.0.1 -> 0.0.2
 - Updated api for route definition, to pass path properties as well as path to render function.
 
