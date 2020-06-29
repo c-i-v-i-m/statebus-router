@@ -1,3 +1,6 @@
+# 0.0.6
+- Improve handlePopState / navigate
+
 # 0.0.5
 - Actual, comprehensive, dependency cleanup
 - Export navigate from /actions

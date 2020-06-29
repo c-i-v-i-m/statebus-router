@@ -96,23 +96,28 @@ export addRoute = (key, options) ->
 
 # Change route
 export navigate = (key, path) ->
+    # Should probably not be calling navigate. Use href anchors or set window.location.
     router = fetch('_router')
     router.routes or= {}
     if !router.routes[key]
         throw(new Error('Invalid route.'))
 
-    newLocation = window.location.pathname + '#'+key
+    currentKey = getCurrentKey()
+    currentPath = getCurrentPath()
+    if key != currentKey || path != currentPath
+        newLocation = window.location.pathname + '#'+key
 
-    if path
-        newLocation += path
-        router.currentPath = path
-    else 
-        router.currentPath = null
+        if path
+            newLocation += path
+            router.currentPath = path
+        else
+            router.currentPath = null
 
-    router.currentRoute = key    
+        router.currentRoute = key
+        setTimeout(() ->
+            save(router)
+        , 1) #@NOTE: wish we didn't have to do this...
 
-    save(router)
-    window.location = newLocation
     return window.location
 
 
@@ -163,7 +168,4 @@ export checkCurrentLocation = () ->
 export handlePopState = () ->
     window.onpopstate = (event) ->
         newRoute = parseLocationHref(window.location.href)
-        currentKey = getCurrentKey()
-        currentPath = getCurrentPath()
-        if (newRoute.key != currentKey || newRoute.path != currentPath) 
-            return navigate(newRoute.key, newRoute.path)
+        navigate(newRoute.key, newRoute.path)

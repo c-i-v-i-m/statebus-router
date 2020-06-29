@@ -1,6 +1,6 @@
 {
   "name": "statebus-router",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "test": "karma start --auto-watch --no-single-run",
     "test:once": "karma start"
