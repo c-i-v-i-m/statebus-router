@@ -18,6 +18,11 @@ const mockState = (initState = {}) => {
       return object;
     };
 
+    window.setTimeout = function(fn, ms) {
+      // @NOTE: don't wait for timeout, run immediately
+      fn()
+    }
+
     return states;
 };
 
