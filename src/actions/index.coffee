@@ -105,7 +105,9 @@ export navigate = (key, path) ->
     currentKey = getCurrentKey()
     currentPath = getCurrentPath()
     if key != currentKey || path != currentPath
-        newLocation = window.location.pathname + '#'+key
+        newLocation = window.location.pathname + '#' + key + (path || '')
+        if window.location != newLocation
+            window.location = newLocation
 
         if path
             newLocation += path
@@ -119,7 +121,6 @@ export navigate = (key, path) ->
         , 1) #@NOTE: wish we didn't have to do this...
 
     return window.location
-
 
 export getPropertiesFromPath = (path, template) -> 
     if !path then return {}
