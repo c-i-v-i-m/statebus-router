@@ -1,4 +1,4 @@
-# 0.0.6
+# 0.0.7
 - Upgrade packages (fix security vulnerability in lodash < 4.17.19)
 
 # 0.0.6
