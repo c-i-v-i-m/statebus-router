@@ -1,3 +1,6 @@
+# 0.1.1
+- Build with libraryTarget
+
 # 0.1.0
 - Publish Javascript (not coffeescript) component + actions
     - Removes need for complex webpack setup to user statebus-router, no need to import from /actions

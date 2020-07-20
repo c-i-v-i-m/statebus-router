@@ -7,7 +7,7 @@ module.exports = {
       index: './src/index.js',
     },
 
-    target: 'node',
+    target: 'web',
 
     module: {
         rules: [
@@ -39,6 +39,9 @@ module.exports = {
     },
 
     output: {
-      filename: '[name].js'
+      filename: '[name].js',
+      library: 'statebus-router',
+      // libraryTarget: 'commonjs2',
+      libraryTarget: 'umd'
     }
 };
