@@ -1,4 +1,7 @@
 # 0.0.6
+- Upgrade packages (fix security vulnerability in lodash < 4.17.19)
+
+# 0.0.6
 - Improve handlePopState / navigate
 
 # 0.0.5

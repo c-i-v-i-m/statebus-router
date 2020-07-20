@@ -1,6 +1,6 @@
 {
   "name": "statebus-router",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "test": "karma start --auto-watch --no-single-run",
     "test:once": "karma start"
@@ -15,13 +15,13 @@
     "chai": "^4.2.0",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.4.1",
-    "karma": "^4.3.0",
+    "karma": "^5.1.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coffee-preprocessor": "^1.0.1",
     "karma-firefox-launcher": "^1.2.0",
     "karma-jasmine": "^2.0.1",
-    "karma-mocha": "^1.3.0",
+    "karma-mocha": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.3.7",
