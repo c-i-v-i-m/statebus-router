@@ -1,5 +1,5 @@
 # statebus-router
-`version: 0.0.7`
+`version: 0.1.0`
 
 # What is statebus-router?
 A lazy-man's front-end router for Statebus. 
@@ -35,7 +35,7 @@ In the following example, users will be given the `user` role before being logge
 
 
 ```coffee
-import { configRouter } from 'statebus-router/actions'
+import { configRouter } from 'statebus-router'
 
 configRouter({
     defaultRouteKey: 'welcome',
@@ -49,7 +49,7 @@ During your app's initialization, call _addRoute_ and pass it a **render** compo
 For example, to respond to all requests for `/simple` with a SIMPLE_COMPONENT.
 
 ```coffee
-import { addRoute } from 'statebus-router/actions'
+import { addRoute } from 'statebus-router'
 
 addRoute('simple', {
     render: SIMPLE_COMPONENT,
@@ -76,7 +76,7 @@ In the following example, requests for `/item/23` would be passed to ITEM_COMPON
 import { 
     addRoute, 
     getPropertiesFromPath
-} from 'statebus-router/actions'
+} from 'statebus-router'
 
 addRoute('item/:id', {
     render: ({id}) -> ITEM_COMPONENT(id)

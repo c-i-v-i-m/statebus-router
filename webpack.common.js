@@ -1,7 +1,11 @@
 const path = require('path');
 
 module.exports = {
-    context: path.resolve(__dirname, "src"),
+    // context: path.resolve(__dirname, "src"),
+    
+    entry: {
+      index: './src/index.js',
+    },
 
     target: 'node',
 
@@ -32,5 +36,9 @@ module.exports = {
                 }
             },
         ],
+    },
+
+    output: {
+      filename: '[name].js'
     }
 };

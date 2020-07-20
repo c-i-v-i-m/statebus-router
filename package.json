@@ -1,9 +1,11 @@
 {
   "name": "statebus-router",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "scripts": {
     "test": "karma start --auto-watch --no-single-run",
-    "test:once": "karma start"
+    "test:once": "karma start",
+    "build": "webpack --env=prod",
+    "pub": " yarn test:once && yarn build && npm publish"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

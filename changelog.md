@@ -1,3 +1,7 @@
+# 0.1.0
+- Publish Javascript (not coffeescript) component + actions
+    - Removes need for complex webpack setup to user statebus-router, no need to import from /actions
+
 # 0.0.7
 - Upgrade packages (fix security vulnerability in lodash < 4.17.19)
 
