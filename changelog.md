@@ -1,5 +1,8 @@
+# 0.1.3
+- Cleanup npm files
+
 # 0.1.2
-- handlePopState shouldn't attach to window.onpopstate
+- HandlePopState shouldn't attach to window.onpopstate
 
 # 0.1.1
 - Build with libraryTarget
@@ -24,7 +27,7 @@
 # 0.0.3
 - Update package dev depencies.
 - npmignore eslintrc
-- update readme
+- Update readme
 
 # 0.0.2
 - Updated api for route definition, to pass path properties as well as path to render function.

@@ -1,2 +1,13 @@
 .eslintrc
-src/*
+.gitignore
+karma.conf.js
+test.webpack.config.js
+webpack.common.js
+webpack.config.js
+webpack.prod.js
+src
+
+# Readme.md
+# package.json
+# yarn.lock
+# changelog.md
