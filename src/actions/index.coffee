@@ -167,6 +167,5 @@ export checkCurrentLocation = () ->
     return navigate(newRoute.key, newRoute.path)
 
 export handlePopState = () ->
-    window.onpopstate = (event) ->
-        newRoute = parseLocationHref(window.location.href)
-        navigate(newRoute.key, newRoute.path)
+    newRoute = parseLocationHref(window.location.href)
+    navigate(newRoute.key, newRoute.path)

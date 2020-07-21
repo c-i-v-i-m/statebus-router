@@ -1,3 +1,6 @@
+# 0.1.2
+- handlePopState shouldn't attach to window.onpopstate
+
 # 0.1.1
 - Build with libraryTarget
 
