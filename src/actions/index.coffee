@@ -100,25 +100,17 @@ export navigate = (key, path) ->
     router = fetch('_router')
     router.routes or= {}
     if !router.routes[key]
-        throw(new Error('Invalid route.'))
+        throw(new Error('Invalid route. ' + key))
 
     currentKey = getCurrentKey()
     currentPath = getCurrentPath()
     if key != currentKey || path != currentPath
         newLocation = window.location.pathname + '#' + key + (path || '')
         if window.location != newLocation
-            window.location = newLocation
-
-        if path
-            newLocation += path
-            router.currentPath = path
-        else
-            router.currentPath = null
-
-        router.currentRoute = key
-        setTimeout(() ->
+            router.currentRoute = key
+            router.currentPath = path || null
             save(router)
-        , 1) #@NOTE: wish we didn't have to do this...
+            window.location = newLocation
 
     return window.location
 

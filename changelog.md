@@ -1,3 +1,6 @@
+# 0.1.4
+- Fix onpopstate recursion
+
 # 0.1.3
 - Cleanup npm files
 
