@@ -1,5 +1,5 @@
 # statebus-router
-`version: 0.1.5`
+`version: 0.2.0`
 
 # What is statebus-router?
 A lazy-man's front-end router for Statebus. 

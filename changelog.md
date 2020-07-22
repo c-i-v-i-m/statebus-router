@@ -1,5 +1,5 @@
 # 0.2.0
-- Actually fix onpopstate / window.location recursion
+- Fix onpopstate / window.location recursion
 - Wrap setup within initRouter
 - Update Readme
 
