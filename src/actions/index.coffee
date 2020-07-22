@@ -66,7 +66,7 @@ export authorizeRoute = (routeOptions) ->
     else
         return authorizeByRoles(routeOptions)
 
-export getCurrentKey = () ->
+export getCurrentRoute = () ->
     router = fetch('_router')
     router.currentRoute or= _DEFAULT_ROUTE_KEY
     return router.currentRoute
@@ -96,20 +96,23 @@ export addRoute = (key, options) ->
 
 # Change route
 export navigate = (key, path) ->
-    # Should probably not be calling navigate. Use href anchors or set window.location.
+    # Should probably not be calling navigate in code (exported for tests).
+    # Use href anchors or set window.location.
     router = fetch('_router')
     router.routes or= {}
     if !router.routes[key]
         throw(new Error('Invalid route. ' + key))
 
-    currentKey = getCurrentKey()
+    currentKey = getCurrentRoute()
     currentPath = getCurrentPath()
     if key != currentKey || path != currentPath
-        newLocation = window.location.pathname + '#' + key + (path || '')
-        if window.location != newLocation
-            router.currentRoute = key
-            router.currentPath = path || null
-            save(router)
+        router.currentRoute = key
+        router.currentPath = path || null
+        save(router)
+
+        # update window.location after updating router state
+        newLocation = window.location.pathname + '#' + key + (path || '')    
+        if (window.location.pathname + window.location.hash) != newLocation
             window.location = newLocation
 
     return window.location

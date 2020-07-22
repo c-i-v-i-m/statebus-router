@@ -2,10 +2,9 @@ import {
   getRouter,
   configRouter,
   navigate, 
-  getCurrentKey, 
+  getCurrentRoute, 
   getCurrentPath, 
   parseLocationHref,
-  // checkCurrentLocation, @TODO: check call to navigate
   // handlePopState, @TODO: check call to navigate (need to trigger popstate)
   addRoute,
   authorizeRoute,
@@ -39,9 +38,9 @@ describe('Router', () => {
     });
   });
 
-  describe('getCurrentKey', () => {
+  describe('getCurrentRoute', () => {
     it("default route is \"list\"", () => {
-      const currentKey = getCurrentKey()
+      const currentKey = getCurrentRoute()
       expect(currentKey).to.equal("list")
     });
   });
@@ -87,7 +86,7 @@ describe('Router', () => {
       it("Updates router", () => {
         addRoute('key', {value: 'test'});
         navigate('key', null);
-        const currentKey = getCurrentKey();
+        const currentKey = getCurrentRoute();
         const currentPath = getCurrentPath();
         expect(currentKey).to.equal('key');
         expect(currentPath).to.equal(null);
@@ -105,7 +104,7 @@ describe('Router', () => {
       it("Updates router", () => {
         addRoute('key', {value: 'test'});
         navigate('key', '/route');
-        const currentKey = getCurrentKey();
+        const currentKey = getCurrentRoute();
         const currentPath = getCurrentPath();
         expect(currentKey).to.equal('key');
         expect(currentPath).to.equal('/route');

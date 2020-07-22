@@ -17,9 +17,15 @@ OR using yarn
 yarn add statebus-router
 ```
 
-## Import statebus-router once in your project
+## Initialize statebus-router once in your project
+This will make dom.ROUTER accessible in your app, and monitor for page changes.
+
 ```coffee
-import 'statebus-router'
+import {
+    initRouter
+} from 'statebus-router'
+
+initRouter()
 ```
 
 
@@ -75,7 +81,6 @@ In the following example, requests for `/item/23` would be passed to ITEM_COMPON
 ```coffee
 import { 
     addRoute, 
-    getPropertiesFromPath
 } from 'statebus-router'
 
 addRoute('item/:id', {
