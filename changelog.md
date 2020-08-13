@@ -1,3 +1,6 @@
+# 0.2.1
+- console.error invalid routes and paths rather than throwing errors
+
 # 0.2.0
 - Fix onpopstate / window.location recursion
 - Wrap setup within initRouter

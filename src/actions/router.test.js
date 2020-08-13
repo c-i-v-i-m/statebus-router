@@ -69,10 +69,8 @@ describe('Router', () => {
     afterEach(() => {
       states = {};
     });
-    it("Throws invalid", () => {
-      expect(() => {
-        navigate('invalid', 'route')
-      }).to.throw('Invalid route.')
+    it("Returns false on invalid", () => {
+      expect(navigate('invalid', 'route')).to.equal(false)
     });
 
     describe('Without Path', () => {
@@ -189,11 +187,9 @@ describe('Router', () => {
           expect(Object.keys(properties).length).to.equal(0)
         });
 
-        it("Handles invalid path", () => {
-          expect(() => {
-            const properties = getPropertiesFromPath('/wrongPath', template)
-          }).to.throw('Invalid path.');
-        });
+        it("Returns false on invalid path", () => {
+          expect(getPropertiesFromPath('/wrongPath', template)).to.equal(false);
+        })
       });
 
       describe("Complex path", () => {
@@ -244,12 +240,8 @@ describe('Router', () => {
         });
 
         it("Handles invalid path", () => {
-          expect(() => {
-            const properties = getPropertiesFromPath('/path/:id/not_version/:version', template)
-          }).to.throw('Invalid path.');
-          expect(() => {
-            const properties = getPropertiesFromPath('/not_path/:id/version/:version', template)
-          }).to.throw('Invalid path.');
+            expect(getPropertiesFromPath('/path/:id/not_version/:version', template)).to.equal(false);
+            expect(getPropertiesFromPath('/not_path/:id/version/:version', template)).to.equal(false);
         });
       });
   });

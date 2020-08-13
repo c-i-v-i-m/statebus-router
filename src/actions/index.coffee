@@ -101,7 +101,8 @@ export navigate = (key, path) ->
     router = fetch('_router')
     router.routes or= {}
     if !router.routes[key]
-        throw(new Error('Invalid route. ' + key))
+        console.error(new Error('Invalid route. ' + key))
+        return false
 
     currentKey = getCurrentRoute()
     currentPath = getCurrentPath()
@@ -124,17 +125,21 @@ export getPropertiesFromPath = (path, template) ->
     templateSegments = template.split('/').filter((s) -> s.length)
     pathSegments = path.split('/').filter((s) -> s.length)
 
-    properties = pathSegments.reduce((r, pSegment, idx) ->
-        if (templateSegments[idx][0] != ':' && pSegment != templateSegments[idx])
-            #not a property but text doesn't match...
-            throw(new Error("Invalid path."))
+    try
+        properties = pathSegments.reduce((r, pSegment, idx) ->
+            if (templateSegments[idx][0] != ':' && pSegment != templateSegments[idx])
+                #not a property but text doesn't match...
+                throw(new Error("Invalid path."))
         else if templateSegments[idx][0] == ':'
             # we found a property, map it!
             r[templateSegments[idx].split(':')[1]] = pSegment
             return r
         else
-            return r 
-    , {})
+                return r
+        , {})
+    catch err
+        console.error(err)
+        return false
     return properties
 
 export parseLocationHref = (href) -> 
